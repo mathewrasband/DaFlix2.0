@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class S3Service implements FileService {
 	
+	@SuppressWarnings("deprecation")
 	private final AmazonS3Client awsS3Client = new AmazonS3Client() ;
 
 	@Override
