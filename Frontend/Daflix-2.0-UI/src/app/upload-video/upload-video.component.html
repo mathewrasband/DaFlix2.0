@@ -21,6 +21,6 @@
         </table>
     </div>
 
-    <button mat-button  *ngIf="fileUploaded">Upload Video</button>
+    <button mat-button (click)="uploadVideo()" *ngIf="fileUploaded">Upload Video</button>
 
 </div>

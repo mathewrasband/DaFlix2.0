@@ -58,4 +58,8 @@ export class UploadVideoComponent {
     console.log(event);
   }
 
+  uploadVideo() {
+    
+    }
+
 }
