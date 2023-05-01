@@ -28,7 +28,7 @@ public class VideoController {
 	@PutMapping
 	@ResponseStatus(HttpStatus.OK)
 	public VideoDto editVideoMetaData(@RequestBody VideoDto videoDto) {
-		videoService.editVideo(videoDto);
+		return videoService.editVideo(videoDto);
 	}
 
 }
