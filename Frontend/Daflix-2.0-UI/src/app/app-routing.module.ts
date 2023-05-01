@@ -8,7 +8,7 @@ const routes: Routes = [
     path: 'upload-video', component: UploadVideoComponent,
   },
   {
-    path: 'save-video-details', component: SaveVideoDeatilsComponent,
+    path: 'save-video-details/:videoId', component: SaveVideoDeatilsComponent,
   }
 ];
 
