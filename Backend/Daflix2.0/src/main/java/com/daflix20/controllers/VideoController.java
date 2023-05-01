@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.daflix20.DTO.UploadVideoResponse;
 import com.daflix20.DTO.VideoDto;
 import com.daflix20.service.VideoService;
 
@@ -21,8 +22,8 @@ public class VideoController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public void uploadVideo(@RequestParam("file") MultipartFile file) {
-		  videoService.uploadVideo(file);
+	public UploadVideoResponse uploadVideo(@RequestParam("file") MultipartFile file) {
+		  return  videoService.uploadVideo(file);
 	}
 	
 	@PutMapping

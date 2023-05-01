@@ -3,6 +3,7 @@ package com.daflix20.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.daflix20.DTO.UploadVideoResponse;
 import com.daflix20.DTO.VideoDto;
 import com.daflix20.model.Video;
 import com.daflix20.repository.VideoRepository;
@@ -16,13 +17,15 @@ public class VideoService {
 	private S3Service s3Service;
 	private VideoRepository videoRepository;
 	
-	public void uploadVideo(MultipartFile multipartFile) {
+	public UploadVideoResponse uploadVideo(MultipartFile multipartFile) {
 		
 		String videoUrl = s3Service.uploadFile(multipartFile);
 		var video = new Video();
 		video.setVideoUrl(videoUrl);
 		
-		videoRepository.save(video);
+		Video savedVideo = videoRepository.save(video);
+		
+		return new UploadVideoResponse(savedVideo.getId(), savedVideo.getVideoUrl()  )
 	}
 
 	public VideoDto editVideo(VideoDto videoDto) {
