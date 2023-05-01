@@ -11,13 +11,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { SaveVideoDeatilsComponent } from './save-video-deatils/save-video-deatils.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadVideoComponent,
-    HeaderComponent
+    HeaderComponent,
+    SaveVideoDeatilsComponent
   ],   
   imports: [
     BrowserModule,
