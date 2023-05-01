@@ -6,6 +6,7 @@ public class S3Service implements FileService {
 
 	@Override
 	public String uploadFile(MultipartFile multipartFile) {
+		// Upload file to AWS S3
 		
 	}
 }
