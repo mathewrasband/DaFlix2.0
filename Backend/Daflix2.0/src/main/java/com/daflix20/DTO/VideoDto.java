@@ -1,12 +1,7 @@
 package com.daflix20.DTO;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-
-import org.springframework.data.annotation.Id;
-
-import com.daflix20.model.Comment;
 import com.daflix20.model.VideoStatus;
 
 public class VideoDto {

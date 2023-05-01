@@ -1,5 +1,7 @@
 package com.daflix20.model;
 
+import java.util.Objects;
+
 import org.springframework.data.annotation.Id;
 
 public class Comment {
@@ -54,6 +56,31 @@ public class Comment {
 	}
 	public void setDislikeCount(Integer dislikeCount) {
 		this.dislikeCount = dislikeCount;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(authorId, dislikeCount, id, likeCount, text);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Comment other = (Comment) obj;
+		return Objects.equals(authorId, other.authorId) && Objects.equals(dislikeCount, other.dislikeCount)
+				&& Objects.equals(id, other.id) && Objects.equals(likeCount, other.likeCount)
+				&& Objects.equals(text, other.text);
+	}
+
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", text=" + text + ", authorId=" + authorId + ", likeCount=" + likeCount
+				+ ", dislikeCount=" + dislikeCount + "]";
 	}
 	
 

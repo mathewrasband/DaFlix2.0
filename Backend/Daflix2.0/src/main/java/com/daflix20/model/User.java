@@ -1,6 +1,7 @@
 package com.daflix20.model;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
@@ -8,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(value = "User")
 class User {
-	
+
 	@Id
 	private String id;
 	private String firstName;
@@ -120,6 +121,38 @@ class User {
 
 	public void setDislikedVideos(Set<String> dislikedVideos) {
 		this.dislikedVideos = dislikedVideos;
+	}
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(dislikedVideos, emailAddress, firstName, fullName, id, lastName, likedVideos,
+				subscribedToUsers, subscribers, videoHistory);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(dislikedVideos, other.dislikedVideos) && Objects.equals(emailAddress, other.emailAddress)
+				&& Objects.equals(firstName, other.firstName) && Objects.equals(fullName, other.fullName)
+				&& Objects.equals(id, other.id) && Objects.equals(lastName, other.lastName)
+				&& Objects.equals(likedVideos, other.likedVideos)
+				&& Objects.equals(subscribedToUsers, other.subscribedToUsers)
+				&& Objects.equals(subscribers, other.subscribers) && Objects.equals(videoHistory, other.videoHistory);
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", fullName=" + fullName
+				+ ", emailAddress=" + emailAddress + ", subscribedToUsers=" + subscribedToUsers + ", subscribers="
+				+ subscribers + ", videoHistory=" + videoHistory + ", likedVideos=" + likedVideos + ", dislikedVideos="
+				+ dislikedVideos + "]";
 	}
 	
 	
