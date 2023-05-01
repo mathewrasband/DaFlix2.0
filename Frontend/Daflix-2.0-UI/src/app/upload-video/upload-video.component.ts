@@ -9,6 +9,7 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 export class UploadVideoComponent {
   
   public files: NgxFileDropEntry[] = [];
+  fileUploaded: boolean = false; 
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -21,6 +22,8 @@ export class UploadVideoComponent {
 
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
+ 
+          this.fileUploaded = true;
 
           /**
           // You could upload it like this:
